@@ -15,16 +15,27 @@
 {##CC1234#}
 </head>
 <body>
+    {% csrf_token %}
+    <script>
+        let CSRF = document.getElementsByName('csrfmiddlewaretoken')[0].value;
+        let URL_PREFIX = 'http' + '://' + '{{ request.META.HTTP_HOST }}' + '/';
+        let axios_instance = axios.create(
+            {
+                baseURL: URL_PREFIX,
+                headers:{'X-CSRFToken':CSRF},
+            }
+        );
+    </script>
     {% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">МРК</a>
+        <a class="navbar-brand" href="{% url 'main_app:base_page' %}">БГУИР<br>Филиал "Минский радиотехнический колледж"</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'main_app:base_page' %}">Главная<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Студентам</a>
@@ -53,7 +64,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Новости</a>
+                    <a class="nav-link" href="{% url 'news_app:news_page' %}">Новости</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
@@ -68,11 +79,17 @@
     {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2" style="background-color: #FFFFFF">
-                <p>Новости</p>
+            <div class="col-lg-2" style="background-color: #CC1234">
+                здесь будут отображаться последнии новости
+            </div>
+            <div class="col-lg-10" style="background-color: #1234CC">
+                здесь будет список специальностей
             </div>
         </div>
     </div>
+    {% endblock %}
+    {% block footer %}
+
     {% endblock %}
 </body>
 </html>
