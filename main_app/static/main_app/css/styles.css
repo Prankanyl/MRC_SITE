@@ -1,0 +1,23 @@
+img.size-logo {
+    width: 50%;
+    height: 50%;
+}
+
+img.size-carousel {
+    height: 500px;
+}
+
+div.footer {
+    /*position: absolute;*/
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    background: #343A40;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+p.history_page_indent {
+    text-indent: 25px;
+    text-align-all: center;
+}
