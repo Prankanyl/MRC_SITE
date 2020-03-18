@@ -7,8 +7,13 @@ img.size-carousel {
     height: 500px;
 }
 
+img.size_director_history_page {
+    width: 300px;
+    height: 400px;
+}
+
 div.footer {
-    /*position: absolute;*/
+    position: static;
     left: 0;
     bottom: 0;
     padding: 10px;

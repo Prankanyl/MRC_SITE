@@ -28,7 +28,7 @@
     </script>
     {% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><small>БГУИР<br>Филиал "Минский радиотехнический колледж"</small> </a>
+        <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><small>БГУИР Филиал "Минский<br>радиотехнический колледж"</small> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,7 +58,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Абитуриентам</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Информация о специальностях</a>
+                        <a class="dropdown-item" href="{% url 'main_app:specialty_information_page' %}">Информация о специальностях</a>
                         <a class="dropdown-item" href="#">Прием документов</a>
                         <a class="dropdown-item" href="#">Подготовительные курсы</a>
                     </div>
@@ -108,6 +108,7 @@
     {% endblock %}
     {% block footer %}
     <footer>
+{#    <br><br><br>#}
     <div class= "container-fluid footer">
         <div class="row">
             <div class="col-lg-1">
@@ -116,15 +117,15 @@
             <div class="col-lg-3">
                 <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
             </div>
-{#            <div class="col-lg-1">#}
-{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
-{#            </div>#}
-{#            <div class="col-lg-1">#}
-{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
-{#            </div>#}
-{#            <div class="col-lg-1">#}
-{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
-{#            </div>#}
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
         </div>
     </div>
     </footer>
