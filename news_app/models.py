@@ -1,5 +1,5 @@
 from django.db import models
-from PIL import Image
+# from PIL import Image
 
 
 class Article(models.Model):
