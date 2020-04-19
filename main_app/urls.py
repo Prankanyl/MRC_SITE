@@ -5,6 +5,7 @@ from .views import (
     history_page,
     specialty_page,
     specialty_information_page,
+    list_students,
 )
 
 
@@ -16,4 +17,5 @@ urlpatterns = [
     path('history_mrc/', history_page, name='history_page'),
     path('specialty_information/specialty/', specialty_page, name='specialty_page'),
     path('specialty_information/', specialty_information_page, name='specialty_information_page'),
+    path('list_students/', list_students, name='list_students'),
 ]

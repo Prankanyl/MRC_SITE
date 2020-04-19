@@ -1,4 +1,5 @@
 from django.db import models
+from PIL import Image
 
 
 class Article(models.Model):
@@ -11,6 +12,13 @@ class Article(models.Model):
     )
     date_release = models.DateTimeField(
         verbose_name='Дата создания статьи'
+    )
+    photo = models.ImageField(
+        verbose_name='Фотография',
+        upload_to='news_app/image/',
+        default=None,
+        blank=True,
+        null=True,
     )
 
     def __str__(self):

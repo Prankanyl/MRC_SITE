@@ -24,3 +24,7 @@ def specialty_information_page(request):
 def contacts_page(request):
     return render(request, 'main_app/contacts.html', context={})
 
+
+def list_students(request):
+    return render(request, 'main_app/list_students.html', context={})
+
