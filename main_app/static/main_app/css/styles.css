@@ -7,6 +7,12 @@ img.size-carousel {
     height: 500px;
 }
 
+img.size-center {
+    margin: 10%;
+    width: 75%;
+    height: 75%;
+}
+
 img.size_director_history_page {
     width: 300px;
     height: 400px;
@@ -25,4 +31,14 @@ div.footer {
 p.history_page_indent {
     text-indent: 25px;
     text-align-all: center;
+}
+
+h3.center_white_text {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+h3.center_black_text {
+    text-align: center;
+    color: #000000;
 }

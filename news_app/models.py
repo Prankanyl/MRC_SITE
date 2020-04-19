@@ -4,7 +4,7 @@ from django.db import models
 class Article(models.Model):
     article_title = models.CharField(
         verbose_name='Название статьи',
-        max_length=100,
+        max_length=200,
     )
     article_text = models.TextField(
         verbose_name='Текст статьи',
@@ -25,7 +25,7 @@ class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     author_name = models.CharField(
         verbose_name='Имя автора комментария',
-        max_length=10,
+        max_length=50,
     )
     comment_text = models.TextField(
         verbose_name='Текст комментария',
