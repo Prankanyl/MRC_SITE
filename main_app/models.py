@@ -2,7 +2,7 @@ from django.db import models
 from PIL import Image
 
 
-class Man(models.Model):
+class Student(models.Model):
     first_name = models.CharField(
         max_length=20,
         verbose_name='Имя человека',
@@ -15,15 +15,11 @@ class Man(models.Model):
         max_length=20,
         verbose_name='Отчество человека',
     )
-    email = models.CharField(
+    email = models.EmailField(
         verbose_name='Email',
-        max_length=30,
         blank=True,
         null=True,
     )
-
-
-class Student(Man):
     age = models.IntegerField(
         verbose_name='Возраст студента',
     )
@@ -51,7 +47,24 @@ class Student(Man):
         verbose_name_plural = 'Студенты'
 
 
-class Teacher(Man):
+class Teacher(models.Model):
+    first_name = models.CharField(
+        max_length=20,
+        verbose_name='Имя человека',
+    )
+    last_name = models.CharField(
+        max_length=20,
+        verbose_name='Фамилия человека',
+    )
+    patronymic = models.CharField(
+        max_length=20,
+        verbose_name='Отчество человека',
+    )
+    email = models.EmailField(
+        verbose_name='Email',
+        blank=True,
+        null=True,
+    )
     category = models.CharField(
         verbose_name='Категоря преподавателя',
         max_length=20
@@ -84,3 +97,7 @@ class Specialty(models.Model):
         blank=True,
         null=True,
     )
+
+    class Meta:
+        verbose_name = 'Специальность'
+        verbose_name_plural = 'Специальности'
