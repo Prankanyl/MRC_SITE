@@ -6,6 +6,8 @@ from .views import (
     specialty_page,
     specialty_information_page,
     list_students,
+    structure_mrc,
+    practice,
 )
 
 
@@ -18,4 +20,6 @@ urlpatterns = [
     path('specialty_information/specialty/', specialty_page, name='specialty_page'),
     path('specialty_information/', specialty_information_page, name='specialty_information_page'),
     path('list_students/', list_students, name='list_students'),
+    path('structure_mrc/', structure_mrc, name='structure_mrc'),
+    path('practice/', practice, name='practice'),
 ]

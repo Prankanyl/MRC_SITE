@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from .models import (
+    Student,
+    Teacher,
+    Specialty
+)
 
 
 def base_page(request):
@@ -18,7 +23,8 @@ def specialty_page(request):
 
 
 def specialty_information_page(request):
-    return render(request, 'main_app/specialty_information.html', context={})
+    specialty = Specialty.objects.all()
+    return render(request, 'main_app/specialty_information.html', context={'specialty': specialty})
 
 
 def contacts_page(request):
@@ -28,3 +34,10 @@ def contacts_page(request):
 def list_students(request):
     return render(request, 'main_app/list_students.html', context={})
 
+
+def structure_mrc(request):
+    return render(request, 'main_app/structure_mrc.html', context={})
+
+
+def practice(request):
+    return render(request, 'main_app/practice.html', context={})

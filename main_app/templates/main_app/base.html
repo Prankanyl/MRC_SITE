@@ -41,7 +41,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Студентам</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'main_app:timetable_page' %}">Расписание</a>
-                        <a class="dropdown-item" href="#">Практика</a>
+                        <a class="dropdown-item" href="{% url 'main_app:practice' %}">Практика</a>
                         <a class="dropdown-item" href="#">Документы</a>
                         <a class="dropdown-item" href="#">Анкетирование</a>
                         <a class="dropdown-item" href="{% url 'main_app:list_students' %}">Списки групп</a>
@@ -51,7 +51,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">О колледже</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'main_app:history_page' %}">История</a>
-                        <a class="dropdown-item" href="#">Структура колледжа</a>
+                        <a class="dropdown-item" href="{% url 'main_app:structure_mrc' %}">Структура колледжа</a>
                         <a class="dropdown-item" href="#">Цикловые коммисии</a>
                     </div>
                 </li>
@@ -111,15 +111,19 @@
                 <h3 class="center_white_text">Специальности колледжа</h3>
             </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-lg-4">
-                <a href="#"><img src="{% static 'main_app/image/sp1.png' %}" alt="..." class="size-center"></a>
+                <p class="center_white_text">Радиотехническое отделение</p>
+                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp1.png' %}" alt="..." class="size-center"></a>
             </div>
             <div class="col-lg-4">
-                <a href="#"><img src="{% static 'main_app/image/sp2.png' %}" alt="..." class="size-center"></a>
+                <p class="center_white_text">Отделение компьютерных технологий</p>
+                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp2.png' %}" alt="..." class="size-center"></a>
             </div>
             <div class="col-lg-4">
-                <a href="#"><img src="{% static 'main_app/image/sp3.png' %}" alt="..." class="size-center"></a>
+                <p class="center_white_text">Отделение электроники</p>
+                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp3.png' %}" alt="..." class="size-center"></a>
             </div>
         </div>
     </div>

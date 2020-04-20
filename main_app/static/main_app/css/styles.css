@@ -33,12 +33,12 @@ p.history_page_indent {
     text-align-all: center;
 }
 
-h3.center_white_text {
+.center_white_text {
     text-align: center;
     color: #FFFFFF;
 }
 
-h3.center_black_text {
+.center_black_text {
     text-align: center;
     color: #000000;
 }
