@@ -113,3 +113,7 @@ class Specialty(models.Model):
     class Meta:
         verbose_name = 'Специальность'
         verbose_name_plural = 'Специальности'
+
+
+class Practice(models.Model):
+    pass
