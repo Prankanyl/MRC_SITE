@@ -32,7 +32,8 @@ def contacts_page(request):
 
 
 def list_students(request):
-    return render(request, 'main_app/list_students.html', context={})
+    students = Student.objects.all()
+    return render(request, 'main_app/list_students.html', context={'students': students})
 
 
 def structure_mrc(request):
@@ -41,3 +42,11 @@ def structure_mrc(request):
 
 def practice(request):
     return render(request, 'main_app/practice.html', context={})
+
+
+def question(request):
+    return render(request, 'main_app/question.html', context={})
+
+
+def documents(request):
+    return render(request, 'main_app/documents.html', context={})

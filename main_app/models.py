@@ -5,15 +5,15 @@ from django.db import models
 class Student(models.Model):
     first_name = models.CharField(
         max_length=20,
-        verbose_name='Имя человека',
+        verbose_name='Имя',
     )
     last_name = models.CharField(
         max_length=20,
-        verbose_name='Фамилия человека',
+        verbose_name='Фамилия',
     )
     patronymic = models.CharField(
         max_length=20,
-        verbose_name='Отчество человека',
+        verbose_name='Отчество',
     )
     email = models.EmailField(
         verbose_name='Email',
@@ -21,17 +21,17 @@ class Student(models.Model):
         null=True,
     )
     age = models.IntegerField(
-        verbose_name='Возраст студента',
+        verbose_name='Возраст',
     )
     course = models.IntegerField(
-        verbose_name='Курс студента',
+        verbose_name='Курс',
     )
     group = models.CharField(
-        verbose_name='Группа студента',
+        verbose_name='Группа',
         max_length=10,
     )
     specialty = models.CharField(
-        verbose_name='Специальность студента',
+        verbose_name='Специальность',
         max_length=50,
     )
     photo = models.ImageField(
@@ -41,6 +41,12 @@ class Student(models.Model):
         blank=True,
         null=True,
     )
+    code = models.IntegerField(
+        verbose_name='Код учащегося',
+    )
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.patronymic}'
 
     class Meta:
         verbose_name = 'Студент'
@@ -50,15 +56,15 @@ class Student(models.Model):
 class Teacher(models.Model):
     first_name = models.CharField(
         max_length=20,
-        verbose_name='Имя человека',
+        verbose_name='Имя',
     )
     last_name = models.CharField(
         max_length=20,
-        verbose_name='Фамилия человека',
+        verbose_name='Фамилия',
     )
     patronymic = models.CharField(
         max_length=20,
-        verbose_name='Отчество человека',
+        verbose_name='Отчество',
     )
     email = models.EmailField(
         verbose_name='Email',
@@ -76,6 +82,9 @@ class Teacher(models.Model):
         blank=True,
         null=True,
     )
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name} {self.patronymic}'
 
     class Meta:
         verbose_name = 'Преподаватель'
@@ -97,6 +106,9 @@ class Specialty(models.Model):
         blank=True,
         null=True,
     )
+
+    def __str__(self):
+        return f'{self.specialty_title}'
 
     class Meta:
         verbose_name = 'Специальность'

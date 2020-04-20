@@ -8,6 +8,8 @@ from .views import (
     list_students,
     structure_mrc,
     practice,
+    question,
+    documents,
 )
 
 
@@ -22,4 +24,6 @@ urlpatterns = [
     path('list_students/', list_students, name='list_students'),
     path('structure_mrc/', structure_mrc, name='structure_mrc'),
     path('practice/', practice, name='practice'),
+    path('question/', question, name='question'),
+    path('documents/', documents, name='documents'),
 ]

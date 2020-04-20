@@ -42,8 +42,8 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'main_app:timetable_page' %}">Расписание</a>
                         <a class="dropdown-item" href="{% url 'main_app:practice' %}">Практика</a>
-                        <a class="dropdown-item" href="#">Документы</a>
-                        <a class="dropdown-item" href="#">Анкетирование</a>
+                        <a class="dropdown-item" href="{% url 'main_app:documents' %}">Документы</a>
+                        <a class="dropdown-item" href="{% url 'main_app:question' %}">Анкетирование</a>
                         <a class="dropdown-item" href="{% url 'main_app:list_students' %}">Списки групп</a>
                     </div>
                 </li>
