@@ -1,5 +1,5 @@
 from django.db import models
-# from PIL import Image
+from PIL import Image
 
 
 class Student(models.Model):
@@ -36,7 +36,7 @@ class Student(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='main_app/image/students',
+        upload_to='main_app/image/students/% Y/% m/% d/',
         default=None,
         blank=True,
         null=True,
@@ -77,7 +77,7 @@ class Teacher(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='main_app/image/teachers',
+        upload_to='main_app/image/teachers/% Y/% m/% d/',
         default=None,
         blank=True,
         null=True,
@@ -101,7 +101,7 @@ class Specialty(models.Model):
     )
     specialty_logo = models.ImageField(
         verbose_name='Логотип специальности',
-        upload_to='main_app/image/logo',
+        upload_to='main_app/image/logo/% Y/% m/% d/',
         default=None,
         blank=True,
         null=True,

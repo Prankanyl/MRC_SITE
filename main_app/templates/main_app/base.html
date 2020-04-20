@@ -104,6 +104,28 @@
             </a>
         </div>
     </div>
+        {#    <div class="container-fluid" style="background: #343A40">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-12">#}
+{#                <h3 class="center_white_text">Специальности колледжа</h3>#}
+{#            </div>#}
+{#        </div>#}
+{#        <br>#}
+{#        <div class="row">#}
+{#            <div class="col-lg-4">#}
+{#                <p class="center_white_text">Радиотехническое отделение</p>#}
+{#                <a href="{% url 'main_app:specialty_page_1'%}"><img src="{% static 'main_app/image/logo/sp1.png' %}" alt="..." class="size-center"></a>#}
+{#            </div>#}
+{#            <div class="col-lg-4">#}
+{#                <p class="center_white_text">Отделение компьютерных технологий</p>#}
+{#                <a href="{% url 'main_app:specialty_page_2'%}"><img src="{% static 'main_app/image/logo/sp2.png' %}" alt="..." class="size-center"></a>#}
+{#            </div>#}
+{#            <div class="col-lg-4">#}
+{#                <p class="center_white_text">Отделение электроники</p>#}
+{#                <a href="{% url 'main_app:specialty_page_3'%}"><img src="{% static 'main_app/image/logo/sp3.png' %}" alt="..." class="size-center"></a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
     <div class="container-fluid" style="background: #343A40">
         <div class="row">
             <div class="col-lg-12">
@@ -112,27 +134,31 @@
         </div>
         <br>
         <div class="row">
+            {% for item in specialty %}
             <div class="col-lg-4">
-                <p class="center_white_text">Радиотехническое отделение</p>
-                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp1.png' %}" alt="..." class="size-center"></a>
+                <p class="center_white_text">{{ item.specialty_title }}</p>
+                <a href="{% url 'main_app:specialty_page' item.id %}"><img src="{}{{ item.specialty_logo }}" alt="..." class="size-center"></a>
             </div>
-            <div class="col-lg-4">
-                <p class="center_white_text">Отделение компьютерных технологий</p>
-                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp2.png' %}" alt="..." class="size-center"></a>
-            </div>
-            <div class="col-lg-4">
-                <p class="center_white_text">Отделение электроники</p>
-                <a href="{% url 'main_app:specialty_page' %}"><img src="{% static 'main_app/image/logo/sp3.png' %}" alt="..." class="size-center"></a>
-            </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="center_black_text">Новости</h3>
-            </div>
+    <div class="container-fluid" style="background: #FFFFFF">
+        <h3 class="center_black_text">Новости</h3>
+            <div class="row">
+            {% for item in articles %}
+                <div class="card col-lg-4" style="width: 15rem; height: 15rem; background: #666666">
+                    <div class="card-body" style="background: #FFFFFF">
+                        <h5 class="card-title"><a href="{% url 'news_app:news' item.id %}">{{ item.article_title }}</a></h5>
+                        {% if item.image %}
+                        <p>
+                        <img src="{{ item.image.url }}" style="max-width: 10rem">
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+        {% endfor %}
         </div>
-
+    <br>
     </div>
     {% endblock %}
     {% block footer %}

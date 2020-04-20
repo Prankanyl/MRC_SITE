@@ -15,7 +15,7 @@ class Article(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='news_app/image/',
+        upload_to='news_app/image/% Y/% m/% d/',
         default=None,
         blank=True,
         null=True,

@@ -1,7 +1,50 @@
 {% extends 'main_app/base.html' %}
+{% load static %}
 {% block title %}
     Новости
 {% endblock %}
 {% block content %}
-    <p>Здесь будут статьи</p>
+    <div class="container" style="background: #FFFFFF">
+        <h3 class="center_black_text">Последнии новости колледжа</h3>
+        <div class="row">
+        {% for item in articles %}
+        <div class="card col-lg-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'news_app:news' item.id %}">{{ item.article_title }}</a></h5>
+                {% if item.image %}
+                <p>
+                <img src="{{ item.image.url }}" style="max-width: 10rem">
+                </p>
+{#                {% else %}#}
+{#                <p>Изображение отсутствует</p>#}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+    {% include 'news_app/paginations.html' with request=request page_obj=page_obj paginator=paginator %}
+{% endblock %}
+{% block footer %}
+    <footer>
+    <div class= "container-fluid footer" style="position: fixed">
+        <div class="row">
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/logo-mrc.png'%}"></a>
+            </div>
+            <div class="col-lg-3">
+                <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+        </div>
+    </div>
+    </footer>
 {% endblock %}
