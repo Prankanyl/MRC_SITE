@@ -116,4 +116,20 @@ class Specialty(models.Model):
 
 
 class Practice(models.Model):
-    pass
+    group = models.CharField(
+        verbose_name='Группа',
+        max_length=10,
+    )
+    type_practice = models.TextField(
+        verbose_name='Вид практики',
+    )
+    start_practice = models.DateField(
+        verbose_name='Начало практики',
+    )
+    completion_practice = models.DateField(
+        verbose_name='Завершение практики',
+    )
+
+    class Meta:
+        verbose_name = 'Расписание практики'
+        verbose_name_plural = 'Расписание практики'
