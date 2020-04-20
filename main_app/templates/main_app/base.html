@@ -52,7 +52,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'main_app:history_page' %}">История</a>
                         <a class="dropdown-item" href="{% url 'main_app:structure_mrc' %}">Структура колледжа</a>
-                        <a class="dropdown-item" href="#">Цикловые коммисии</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -60,14 +59,14 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'main_app:specialty_information_page' %}">Информация о специальностях</a>
                         <a class="dropdown-item" href="#">Прием документов</a>
-                        <a class="dropdown-item" href="#">Подготовительные курсы</a>
+                        <a class="dropdown-item" href="{% url 'main_app:courses' %}">Подготовительные курсы</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'news_app:news_page' %}">Новости</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Контакты</a>
+                    <a class="nav-link" href="{% url 'main_app:contacts_page' %}">Контакты</a>
                 </li>
             </ul>
             <span class="navbar-text">

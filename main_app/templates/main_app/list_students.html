@@ -4,9 +4,53 @@
     Списки групп
 {%  endblock %}
 {% block content %}
-    <div class="container" style="background: #FFFFFF">
+    <div class="container">
+        <h3>Радиотехническое отделение</h3>
+        <ul>
         {% for student in students %}
-            <p>{{ student }}</p>
+            {% if student.specialty == 'Радиотехническое отделение' %}
+            <li>{{ student }}</li>
+            {% endif %}
         {% endfor %}
+        </ul>
+        <h3>Отделение компьютерных технологий</h3>
+        <ul>
+        {% for student in students %}
+            {% if student.specialty == 'Отделение компьютерных технологий' %}
+            <li>{{ student }}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        <h3>Отделение электроники</h3>
+        <ul>
+        {% for student in students %}
+            {% if student.specialty == 'Отделение электроники' %}
+            <li>{{ student }}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
     </div>
 {%  endblock %}
+{% block footer %}
+    <footer>
+    <div class= "container-fluid footer" style="position: fixed">
+        <div class="row">
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/logo-mrc.png'%}"></a>
+            </div>
+            <div class="col-lg-3">
+                <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+            <div class="col-lg-1">
+                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
+            </div>
+        </div>
+    </div>
+    </footer>
+{% endblock %}

@@ -50,3 +50,7 @@ def question(request):
 
 def documents(request):
     return render(request, 'main_app/documents.html', context={})
+
+
+def courses(request):
+    return render(request, 'main_app/courses.html', context={})

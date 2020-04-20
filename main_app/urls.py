@@ -10,6 +10,8 @@ from .views import (
     practice,
     question,
     documents,
+    contacts_page,
+    courses,
 )
 
 
@@ -26,4 +28,6 @@ urlpatterns = [
     path('practice/', practice, name='practice'),
     path('question/', question, name='question'),
     path('documents/', documents, name='documents'),
+    path('contacts/', contacts_page, name='contacts_page'),
+    path('courses/', courses, name='courses'),
 ]
