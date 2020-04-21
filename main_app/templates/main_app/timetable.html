@@ -15,21 +15,30 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in course_groups %}
                 <tr>
-                    <td><a href="#">9К9091, 9К9191, 9К9291, 9К9111,<br>8К1191,  8К1391, 8К1591</a></td>
-                    <td><a href="#">8К1111, 7К1191, 7К1591,7К1391</a></td>
-                    <td><a href="#">7К1111, 61191, 61591, 61391</a></td>
+                    {% for element in timetable_groups %}
+                        {% if element.course == item %}
+                            <td><a href="{{ element.file.url }}">{{ element.name_part_groups }}</a></td>
+                        {% endif %}
+                    {% endfor %}
                 </tr>
-                <tr>
-                    <td><a href="#">9К9391, 9К9392, 9К9393,<br>9К9394, 9К9311, 8К2491</a></td>
-                    <td><a href="#">8К2492п, 8К2493п, 8К2411,<br>7К2491, 7К2492п, 7К2493п</a></td>
-                    <td><a href="#">7К2411, 62491, 62492п, 62493п</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#">9К9491, 9К9591, 8К3791, 8К3291</a></td>
-                    <td><a href="#">63291, 63791</a></td>
-                    <td><a href="#">7К3291,7К3791</a></td>
-                </tr>
+                {% endfor %}
+{#                <tr>#}
+{#                    <td><a href="#">9К9091, 9К9191, 9К9291, 9К9111, 8К1191,  8К1391, 8К1591</a></td>#}
+{#                    <td><a href="#">8К1111, 7К1191, 7К1591,7К1391</a></td>#}
+{#                    <td><a href="#">7К1111, 61191, 61591, 61391</a></td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td><a href="#">9К9391, 9К9392, 9К9393, 9К9394, 9К9311, 8К2491</a></td>#}
+{#                    <td><a href="#">8К2492п, 8К2493п, 8К2411,7К2491, 7К2492п, 7К2493п</a></td>#}
+{#                    <td><a href="#">7К2411, 62491, 62492п, 62493п</a></td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td><a href="#">9К9491, 9К9591, 8К3791, 8К3291</a></td>#}
+{#                    <td><a href="#">63291, 63791</a></td>#}
+{#                    <td><a href="#">7К3291,7К3791</a></td>#}
+{#                </tr>#}
             </tbody>
         </table>
     </div>
@@ -44,15 +53,6 @@
             </div>
             <div class="col-lg-3">
                 <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
-            </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
-            </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
-            </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
             </div>
         </div>
     </div>

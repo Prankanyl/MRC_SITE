@@ -36,7 +36,7 @@ class Student(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='main_app/image/students/% Y/% m/% d/',
+        upload_to='main_app/image/students/',
         default=None,
         blank=True,
         null=True,
@@ -77,7 +77,7 @@ class Teacher(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='main_app/image/teachers/% Y/% m/% d/',
+        upload_to='main_app/image/teachers/',
         default=None,
         blank=True,
         null=True,
@@ -101,7 +101,7 @@ class Specialty(models.Model):
     )
     specialty_logo = models.ImageField(
         verbose_name='Логотип специальности',
-        upload_to='main_app/image/logo/% Y/% m/% d/',
+        upload_to='main_app/image/logo/',
         default=None,
         blank=True,
         null=True,
@@ -116,6 +116,10 @@ class Specialty(models.Model):
 
 
 class Practice(models.Model):
+    specialty = models.CharField(
+        verbose_name='Специальность',
+        max_length=130,
+    )
     group = models.CharField(
         verbose_name='Группа',
         max_length=10,
@@ -130,6 +134,35 @@ class Practice(models.Model):
         verbose_name='Завершение практики',
     )
 
+    def __str__(self):
+        return f'{self.group} - {self.type_practice}'
+
     class Meta:
         verbose_name = 'Расписание практики'
         verbose_name_plural = 'Расписание практики'
+
+
+class Timetable(models.Model):
+    name_part_groups = models.CharField(
+        verbose_name='Название части групп',
+        max_length=150,
+    )
+    file = models.FileField(
+        upload_to='main_app/file/timetable/',
+    )
+
+    branch = models.CharField(
+        verbose_name='Отделение',
+        max_length=130,
+    )
+
+    course = models.IntegerField(
+        verbose_name='Курс'
+    )
+
+    def __str__(self):
+        return f'{self.name_part_groups}'
+
+    class Meta:
+        verbose_name = 'Расписание пар'
+        verbose_name_plural = 'Расписание пар'

@@ -43,7 +43,8 @@
         Науменко Жанна Николаевна, заместитель директора по производственному обучению.</p>
         <hr>
         <h3 class="center_black_text">График проведения практики</h3>
-        <h5>«Микро- и наноэлектронные технологии и системы»</h5>
+        {% for item in specialty_practice %}
+        <h5>{{ item }}</h5>
         <table class="table table-hover table-bordered" style="background: #FFFFFF">
             <thead>
                 <tr>
@@ -54,174 +55,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>8К3791</td>
-                    <td>практика по технологии обработки информации на ПК</td>
-                    <td>30.09.2019</td>
-                    <td>12.10.2019</td>
-                </tr>
-                <tr>
-                    <td>8К3791</td>
-                    <td>практика электро­монтажная</td>
-                    <td>09.03.2020</td>
-                    <td>21.03.2020</td>
-                </tr>
-                <tr>
-                    <td>8К3791</td>
-                    <td>практика электро­радио­измеритель­ная</td>
-                    <td>20.04.2020</td>
-                    <td> 02.05.2020</td>
-                </tr>
-                <tr>
-                    <td>7К3791</td>
-                    <td>практика для получения квалификации рабочего</td>
-                    <td>24.02.2020</td>
-                    <td>30.05.2020</td>
-                </tr>
+                {% for element in all_practice %}
+                    {% if element.specialty == item %}
+                    <tr>
+                        <td>{{ element.group }}</td>
+                        <td>{{ element.type_practice }}</td>
+                        <td>{{ element.start_practice }}</td>
+                        <td>{{ element.completion_practice }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
             </tbody>
         </table>
-        <h5>«Проектирование и производство радиоэлектронных средств»</h5>
-        <table class="table table-hover table-bordered" style="background: #FFFFFF">
-            <thead>
-                <tr>
-                    <th>Группа</th>
-                    <th>Вид практики</th>
-                    <th>Начало практики</th>
-                    <th>Завершение практики</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>9К9111</td>
-                    <td>практика электромонтажная</td>
-                    <td>13.02.2020</td>
-                    <td>29.02.2020</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <h5>«Техническая эксплуатация радиоэлектронных средств»</h5>
-        <table class="table table-hover table-bordered" style="background: #FFFFFF">
-            <thead>
-                <tr>
-                    <th>Группа</th>
-                    <th>Вид практики</th>
-                    <th>Начало практики</th>
-                    <th>Завершение практики</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <h5>«Программируемые мобильные системы»</h5>
-        <table class="table table-hover table-bordered" style="background: #FFFFFF">
-            <thead>
-                <tr>
-                    <th>Группа</th>
-                    <th>Вид практики</th>
-                    <th>Начало практики</th>
-                    <th>Завершение практики</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <h5>«Электронные вычислительные средства»</h5>
-        <table class="table table-hover table-bordered" style="background: #FFFFFF">
-            <thead>
-                <tr>
-                    <th>Группа</th>
-                    <th>Вид практики</th>
-                    <th>Начало практики</th>
-                    <th>Завершение практики</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <h5>«Программное обеспечение информационных технологий»</h5>
-        <table class="table table-hover table-bordered" style="background: #FFFFFF">
-            <thead>
-                <tr>
-                    <th>Группа</th>
-                    <th>Вид практики</th>
-                    <th>Начало практики</th>
-                    <th>Завершение практики</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        {% endfor %}
     </div>
 {%  endblock %}

@@ -8,7 +8,7 @@
             <div class="col-lg-12">
                 {% for item in specialty %}
                     <h3 class="center_black_text">{{ item.specialty_title }}</h3>
-                    <a href="{% url 'main_app:specialty_page' item.id%}"><img src="{{ item.specialty_logo.url }}"></a>
+                    <a href="{% url 'main_app:specialty_page' item.id%}"><img src="{{ item.specialty_logo.url }}" style="margin-left: 28%"></a>
                     <p class="history_page_indent">{{ item.specialty_descriptions }}</p>
                     <hr>
                 {% endfor %}

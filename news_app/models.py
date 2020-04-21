@@ -1,5 +1,5 @@
 from django.db import models
-# from PIL import Image
+from PIL import Image
 
 
 class Article(models.Model):
@@ -15,7 +15,7 @@ class Article(models.Model):
     )
     photo = models.ImageField(
         verbose_name='Фотография',
-        upload_to='news_app/image/% Y/% m/% d/',
+        upload_to='news_app/image/',
         default=None,
         blank=True,
         null=True,

@@ -12,20 +12,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     {% load static %}
     <link rel="stylesheet" href="{% static 'main_app/css/styles.css' %}" type="text/css">
-{##CC1234#}
 </head>
 <body style="background: #ECF2FF">
     {% csrf_token %}
-    <script>
-        let CSRF = document.getElementsByName('csrfmiddlewaretoken')[0].value;
-        let URL_PREFIX = 'http' + '://' + '{{ request.META.HTTP_HOST }}' + '/';
-        let axios_instance = axios.create(
-            {
-                baseURL: URL_PREFIX,
-                headers:{'X-CSRFToken':CSRF},
-            }
-        );
-    </script>
+{#    <script>#}
+{#        let CSRF = document.getElementsByName('csrfmiddlewaretoken')[0].value;#}
+{#        let URL_PREFIX = 'http' + '://' + '{{ request.META.HTTP_HOST }}' + '/';#}
+{#        let axios_instance = axios.create(#}
+{#            {#}
+{#                baseURL: URL_PREFIX,#}
+{#                headers:{'X-CSRFToken':CSRF},#}
+{#            }#}
+{#        );#}
+{#    </script>#}
     {% block header %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><small>БГУИР Филиал "Минский<br>радиотехнический колледж"</small> </a>
@@ -137,7 +136,11 @@
             {% for item in specialty %}
             <div class="col-lg-4">
                 <p class="center_white_text">{{ item.specialty_title }}</p>
-                <a href="{% url 'main_app:specialty_page' item.id %}"><img src="{}{{ item.specialty_logo }}" alt="..." class="size-center"></a>
+                <a href="{% url 'main_app:specialty_page' item.id %}">
+                {% if item.specialty_logo %}
+                    <img src="{{ item.specialty_logo.url }}" alt="..." class="size-center">
+                {% endif %}
+                </a>
             </div>
             {% endfor %}
         </div>
@@ -149,16 +152,16 @@
                 <div class="card col-lg-4" style="width: 15rem; height: 15rem; background: #666666">
                     <div class="card-body" style="background: #FFFFFF">
                         <h5 class="card-title"><a href="{% url 'news_app:news' item.id %}">{{ item.article_title }}</a></h5>
-                        {% if item.image %}
+                        {% if item.photo %}
                         <p>
-                        <img src="{{ item.image.url }}" style="max-width: 10rem">
+                        <img src="{{ item.photo.url}}" style="max-width: 9rem; margin-left: 28%" >
                         </p>
                         {% endif %}
                     </div>
                 </div>
-        {% endfor %}
-        </div>
-    <br>
+            {% endfor %}
+            </div>
+        <br>
     </div>
     {% endblock %}
     {% block footer %}
@@ -171,15 +174,15 @@
             <div class="col-lg-3">
                 <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
             </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
-            </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
-            </div>
-            <div class="col-lg-1">
-                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>
-            </div>
+{#            <div class="col-lg-1">#}
+{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
+{#            </div>#}
+{#            <div class="col-lg-1">#}
+{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
+{#            </div>#}
+{#            <div class="col-lg-1">#}
+{#                <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/instagram.jpg'%}" class="size-logo"></a>#}
+{#            </div>#}
         </div>
     </div>
     </footer>
