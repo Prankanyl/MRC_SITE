@@ -1,8 +1,17 @@
 from django.db import models
+from django.contrib.auth.models import User
 from PIL import Image
 
 
 class Student(models.Model):
+    login = models.OneToOneField(
+        User,
+        on_delete=models.PROTECT,
+        verbose_name='Профиль студента',
+        blank=True,
+        null=True,
+    )
+
     first_name = models.CharField(
         max_length=20,
         verbose_name='Имя',
@@ -54,6 +63,14 @@ class Student(models.Model):
 
 
 class Teacher(models.Model):
+    login = models.OneToOneField(
+        User,
+        on_delete=models.PROTECT,
+        verbose_name='Профиль преподавателя',
+        blank=True,
+        null=True,
+    )
+
     first_name = models.CharField(
         max_length=20,
         verbose_name='Имя',

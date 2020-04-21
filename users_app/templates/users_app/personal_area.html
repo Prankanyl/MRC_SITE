@@ -1,0 +1,26 @@
+{% extends 'main_app/base.html'%}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+    {% if man %}
+    <h3 class="center_black_text">Личный кабинет {{ man.last_name }} {{ man.first_name }} {{ man.patronymic }}</h3>
+    {% else %}
+    {{ user_id }}
+    {% endif %}
+{% endblock %}
+{% block footer %}
+    <footer>
+        <div class= "container-fluid footer" style="position: fixed">
+            <div class="row">
+                <div class="col-lg-1">
+                    <a class="navbar-brand" href="{% url 'main_app:base_page' %}"><img src="{% static 'main_app/image/logo-mrc.png'%}"></a>
+                </div>
+                <div class="col-lg-3">
+                    <p>БГУИР Филиал "Минский радиотехнический колледж"</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
